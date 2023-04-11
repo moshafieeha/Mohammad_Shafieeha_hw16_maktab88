@@ -8,8 +8,8 @@ const { createEmployeeValidator, profileValidator } = require("../middlewares/va
 
 
 router.post("/create",createEmployeeValidator, createEmployee);
-router.get("/read", getAllEmployees)
-router.get("/profile/:id", profileValidator, getProfile)
+router.get("/readAll", getAllEmployees)
+router.get("/readOne/:id", profileValidator, getProfile)
 
 
 
