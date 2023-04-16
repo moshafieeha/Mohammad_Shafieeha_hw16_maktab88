@@ -138,21 +138,22 @@ const createEmployeeValidator = (req, res, next) => {
 };
 
 const profileValidator = (req, res, next) => {
-  console.log("kkk");
-
   if (!req.params.id) {
     return res.status(400).send("Profile ID is missing");
   }
-  const objectId = mongoose.Types.ObjectId(req.params.id);
-  EmployeeSchema.findById(objectId)
+
+  // findByID handles mongoose.Types.ObjectId(req.params.id);
+  EmployeeSchema.findById(req.params.id)
     .then((profile) => {
       if (!profile) {
         return res.status(404).send("Profile not found");
       }
+      console.log(profile);
       req.profile = profile;
+
       next();
     })
-    .catch(next);
+    .catch(err => console.log(err));
 };
 
 // function createEmployeeValidator(req, res, next) {

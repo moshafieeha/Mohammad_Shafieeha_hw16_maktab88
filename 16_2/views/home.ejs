@@ -36,7 +36,6 @@
           <tbody>
             <!-- sort the list array by lastName -->
 
-            <% list.sort((a, b) => a.lastName.localeCompare(b.lastName)); %>
             <% for (let i = 0; i < list.length; i++) { %>
             <tr>
               <th scope="row"><%= i + 1 %></th>
@@ -47,7 +46,7 @@
               <td><%= list[i].state %></td>
               <td><%= list[i].company %></td>
               <td>
-                <a href="employee/readOne/<%=list[i]._id%>" class="btn btn-primary">See more</a>
+                <a href="http://localhost:3000/employee/readOne/<%=list[i]._id%>" class="btn btn-primary">See more</a>
               </td>
             </tr>
             <% } %>
